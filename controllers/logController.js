@@ -14,3 +14,8 @@ exports.updateLog = async (req, res) => {
     const updatedLog = await Log.findByIdAndUpdate(req.params.id, req.body, {new: true});
     res.json(updatedLog);
 }
+
+exports.deleteLog = async (req, res) => {
+    await Log.findByIdAndDelete(req.params.id);
+    res.json({message: 'Log deleted'});
+}
